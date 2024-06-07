@@ -31,9 +31,6 @@ app.use((err, req, res, next) => {
 const startServer = async () => {
     try {
         await connectDb();
-        await sequelize.sync({ force: true });
-         // This creates the table, use { force: true } for development only as it drops the table if it exists
-
         app.listen(config.app.port, () => {
             console.log(`Server is listening on port ${config.app.port}`);
         });
