@@ -15,7 +15,7 @@ app.use(morgan('dev')); // Logging middleware
 
 
 app.get('/',(req, res) => {
-    res.send('Hello World!');
+    res.send('this is home');
 })
 
 // Routes
