@@ -3,6 +3,20 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { userSchema } = require("../models/userModel");
 
+
+const getAllUsers = async (req, res) => {
+  try {
+      const users = await userSchema.findAll();
+      res.json(users);
+  } catch (error) {
+      res.status(500).json({ error: 'Failed to fetch users' });
+  }
+};
+
+
+
+
+
 const createUser = async (req, res) => {
   const {
     username,
@@ -64,4 +78,4 @@ const login = async (req, res) => {
 };
 
 
-module.exports ={createUser,login}
+module.exports ={createUser,login, getAllUsers}
